@@ -1,0 +1,17 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(74, 71, 76, 85%);
+}
+.modalImg {
+  position: relative;
+}
+.btnCloseModal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(36, 70, 2);
+}
