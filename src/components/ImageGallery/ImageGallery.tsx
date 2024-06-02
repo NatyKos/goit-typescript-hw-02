@@ -3,13 +3,13 @@ import css from './ImageGallery.module.css';
 import { Image } from '../../unsplash-api';
 import { ModalImg } from '../ImageModal/ImageModal';
 
-interface imageGalleryProps {
+interface ImageGalleryProps {
   images: Image[];
   openModal: () => void;
   changeImage: (image: ModalImg) => void;
 }
 
-const ImageGallery: React.FC<imageGalleryProps> = ({
+const ImageGallery: React.FC<ImageGalleryProps> = ({
   images,
   openModal,
   changeImage,
