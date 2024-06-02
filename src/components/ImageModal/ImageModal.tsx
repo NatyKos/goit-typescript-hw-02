@@ -1,9 +1,9 @@
-import Modal from 'react-modal';
+import Modal, { Styles } from 'react-modal';
 import css from './ImageModal.module.css';
 import { FC } from 'react';
 
 Modal.setAppElement('#root');
-const customStyles = {
+const customStyles: Styles = {
   content: {
     top: '50%',
     left: '50%',
@@ -13,14 +13,15 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-export interface Modal {
+export interface ModalImg {
   alt: string;
   img: string;
 }
 interface ImgModalProps {
+  openModal: () => void;
   closeModal: () => void;
   state: boolean;
-  img: Modal | null;
+  img: ModalImg;
 }
 const ImageModal: FC<ImgModalProps> = ({ state, closeModal, img }) => {
   return (

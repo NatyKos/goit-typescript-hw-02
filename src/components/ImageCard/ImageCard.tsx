@@ -1,10 +1,11 @@
 import css from './ImageCard.module.css';
 import { Image } from '../../unsplash-api';
+import { ModalImg } from '../ImageModal/ImageModal';
 
 type ImgProps = {
   img: string;
   alt: string | undefined;
-  onClick: (imgData: Image[]) => void;
+  onClick: () => void;
 };
 const ImageCard: React.FC<ImgProps> = ({ img, alt, onClick }) => {
   return (

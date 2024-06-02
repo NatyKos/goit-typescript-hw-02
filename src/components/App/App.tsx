@@ -6,8 +6,7 @@ import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
-import { Modal } from '../ImageModal/ImageModal';
-import { number } from 'yup';
+import { ModalImg } from '../ImageModal/ImageModal';
 
 interface Images {
   alt: string | undefined;
@@ -22,8 +21,7 @@ export default function App() {
   const [page, setPage] = useState<number>(1);
   const [searchImg, setSearchImg] = useState<string>('');
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState<boolean>(false);
-  const [modal, setModal] = useState<Modal | null>(null);
-  // const [modal, setModal] = useState({});
+  const [modal, setModal] = useState<ModalImg>({ alt: '', img: '' });
 
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
@@ -33,7 +31,7 @@ export default function App() {
     setSearchImg(value);
   };
   useEffect(() => {
-    if (!searchImg) {
+    if (searchImg === '') {
       return;
     }
     async function getImages(): Promise<void> {
@@ -55,14 +53,14 @@ export default function App() {
 
     getImages();
   }, [searchImg, page]);
-  const counterPage = () => {
+  const counterPage = (): void => {
     setPage(page + 1);
   };
 
-  const openModal = () => {
+  const openModal = (): void => {
     setModalIsOpen(true);
   };
-  const closeModal = () => {
+  const closeModal = (): void => {
     setModalIsOpen(false);
   };
   return (
