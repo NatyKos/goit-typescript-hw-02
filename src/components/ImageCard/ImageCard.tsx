@@ -2,7 +2,7 @@ import css from './ImageCard.module.css';
 
 type ImgProps = {
   img: string;
-  alt: string | undefined;
+  alt: string;
   onClick: () => void;
 };
 const ImageCard: React.FC<ImgProps> = ({ img, alt, onClick }) => {

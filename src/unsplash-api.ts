@@ -4,7 +4,7 @@ axios.defaults.baseURL = 'https://api.unsplash.com';
 export interface Image {
   alt: string;
   id: string;
-  img: { small: string; regular: string };
+  urls: { small: string; regular: string };
 }
 interface Response {
   results: Image[];

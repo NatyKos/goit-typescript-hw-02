@@ -16,14 +16,14 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
 }) => {
   return (
     <ul className={css.gallery}>
-      {images.map(({ id, img, alt }) => (
+      {images.map(({ id, urls, alt }) => (
         <li
           key={id}
           onClick={() => {
-            changeImage({ img: img.regular, alt: alt });
+            changeImage({ img: urls.regular, alt: alt });
           }}
         >
-          <ImageCard img={img.small} alt={alt} onClick={openModal} />
+          <ImageCard img={urls.small} alt={alt} onClick={openModal} />
         </li>
       ))}
     </ul>
