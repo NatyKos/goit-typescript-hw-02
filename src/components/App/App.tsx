@@ -9,7 +9,7 @@ import ImageModal from '../ImageModal/ImageModal';
 import { ModalImg } from '../ImageModal/ImageModal';
 
 interface Images {
-  alt: string | undefined;
+  alt: string;
   id: string;
   img: { small: string; regular: string };
 }

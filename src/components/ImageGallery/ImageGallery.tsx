@@ -9,7 +9,7 @@ interface imageGalleryProps {
   changeImage: (image: ModalImg) => void;
 }
 
-const imageGallery: React.FC<imageGalleryProps> = ({
+const ImageGallery: React.FC<imageGalleryProps> = ({
   images,
   openModal,
   changeImage,
@@ -29,4 +29,4 @@ const imageGallery: React.FC<imageGalleryProps> = ({
     </ul>
   );
 };
-export default imageGallery;
+export default ImageGallery;

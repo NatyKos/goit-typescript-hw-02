@@ -1,6 +1,4 @@
 import css from './ImageCard.module.css';
-import { Image } from '../../unsplash-api';
-import { ModalImg } from '../ImageModal/ImageModal';
 
 type ImgProps = {
   img: string;
