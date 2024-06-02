@@ -7,15 +7,21 @@ import Loader from '../Loader/Loader';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
 
+interface Images {
+  alt: string | undefined;
+  id: string;
+  img: { small: string; regular: string };
+}
+
 export default function App() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [searchImg, setSearchImg] = useState('');
-  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
-  const [modal, setModal] = useState({});
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [images, setImages] = useState<Images[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [searchImg, setSearchImg] = useState<string>('');
+  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState<boolean>(false);
+  const [modal, setModal] = useState<Modal | null>(null);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   const handleSearch = async value => {
     setImages([]);

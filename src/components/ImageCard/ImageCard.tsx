@@ -6,10 +6,11 @@ type ImgProps = {
   alt: string | undefined;
   onClick: (imgData: Image[]) => void;
 };
-export default function ImageCard({ img, alt, onClick }): React.FC<ImgProps> {
+const ImageCard: React.FC<ImgProps> = ({ img, alt, onClick }) => {
   return (
     <div>
       <img className={css.galleryItem} src={img} alt={alt} onClick={onClick} />
     </div>
   );
-}
+};
+export default ImageCard;

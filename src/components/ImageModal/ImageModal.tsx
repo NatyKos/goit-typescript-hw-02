@@ -1,5 +1,6 @@
 import Modal from 'react-modal';
 import css from './ImageModal.module.css';
+import { FC } from 'react';
 
 Modal.setAppElement('#root');
 const customStyles = {
@@ -12,7 +13,20 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-export default function ImageModal({ state, closeModal, img }) {
+interface Modal {
+  alt: string;
+  img: string;
+}
+interface ImgModalProps {
+  closeModal: () => void;
+  state: boolean;
+  img: Modal | null;
+}
+export default function ImageModal({
+  state,
+  closeModal,
+  img,
+}): FC<ImgModalProps> {
   return (
     <div className={css.modalImg}>
       <Modal
