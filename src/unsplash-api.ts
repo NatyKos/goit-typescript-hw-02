@@ -2,9 +2,9 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://api.unsplash.com';
 
 export interface Image {
-  alt: string | undefined;
+  alt: string;
   id: string;
-  img: string;
+  img: { small: string; regular: string };
 }
 interface Response {
   results: Image[];
