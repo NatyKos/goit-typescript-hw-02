@@ -13,7 +13,7 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-interface Modal {
+export interface Modal {
   alt: string;
   img: string;
 }
@@ -22,11 +22,7 @@ interface ImgModalProps {
   state: boolean;
   img: Modal | null;
 }
-export default function ImageModal({
-  state,
-  closeModal,
-  img,
-}): FC<ImgModalProps> {
+const ImageModal: FC<ImgModalProps> = ({ state, closeModal, img }) => {
   return (
     <div className={css.modalImg}>
       <Modal
@@ -43,4 +39,5 @@ export default function ImageModal({
       </Modal>
     </div>
   );
-}
+};
+export default ImageModal;

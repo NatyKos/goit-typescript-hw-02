@@ -6,6 +6,8 @@ import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
+import { Modal } from '../ImageModal/ImageModal';
+import { number } from 'yup';
 
 interface Images {
   alt: string | undefined;
@@ -21,9 +23,11 @@ export default function App() {
   const [searchImg, setSearchImg] = useState<string>('');
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState<boolean>(false);
   const [modal, setModal] = useState<Modal | null>(null);
+  // const [modal, setModal] = useState({});
+
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-  const handleSearch = async value => {
+  const handleSearch = (value: string): void => {
     setImages([]);
     setPage(1);
     setSearchImg(value);
@@ -32,13 +36,13 @@ export default function App() {
     if (!searchImg) {
       return;
     }
-    async function getImages() {
+    async function getImages(): Promise<void> {
       try {
         setLoading(true);
         setShowLoadMoreBtn(false);
         const data = await searchImages(searchImg, page);
         const totalPages = data.total_pages;
-        setShowLoadMoreBtn(totalPages && totalPages !== page);
+        setShowLoadMoreBtn(totalPages > page);
         setImages(prev => {
           return [...prev, ...data.results];
         });
