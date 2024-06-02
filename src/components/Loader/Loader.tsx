@@ -1,5 +1,6 @@
 import css from './Loader.module.css';
 import { Watch } from 'react-loader-spinner';
+
 const Loader: React.FC = () => {
   return (
     <div className={css.loader}>

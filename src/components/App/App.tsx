@@ -1,21 +1,14 @@
 import { useEffect, useState } from 'react';
-import { searchImages } from '../../unsplash-api';
+import { searchImages, Image } from '../../unsplash-api';
 import SearchBar from '../SearchBar/SearchBar';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
-import ImageModal from '../ImageModal/ImageModal';
-import { ModalImg } from '../ImageModal/ImageModal';
-
-interface Images {
-  alt: string;
-  id: string;
-  img: { small: string; regular: string };
-}
+import ImageModal, { ModalImg } from '../ImageModal/ImageModal';
 
 export default function App() {
-  const [images, setImages] = useState<Images[]>([]);
+  const [images, setImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
